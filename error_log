@@ -1,0 +1,6 @@
+[18-Jan-2021 08:52:09 America/Mexico_City] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 24576 bytes) in /home/publihom/sivem.publihome.mx/application/libraries/dompdf/lib/Cpdf.php on line 4931
+[18-Jan-2021 09:41:07 America/Mexico_City] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 8285016 bytes) in /home/publihom/sivem.publihome.mx/application/libraries/dompdf/lib/Cpdf.php on line 4794
+[18-Jan-2021 09:51:46 America/Mexico_City] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 8285016 bytes) in /home/publihom/sivem.publihome.mx/application/libraries/dompdf/lib/Cpdf.php on line 4794
+[18-Jan-2021 11:00:18 America/Mexico_City] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 24576 bytes) in /home/publihom/sivem.publihome.mx/application/libraries/dompdf/lib/Cpdf.php on line 4931
+[18-Jan-2021 11:18:12 America/Mexico_City] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 24576 bytes) in /home/publihom/sivem.publihome.mx/application/libraries/dompdf/lib/Cpdf.php on line 4931
+[18-Jan-2021 13:33:27 America/Mexico_City] PHP Fatal error:  Maximum execution time of 120 seconds exceeded in /home/publihom/sivem.publihome.mx/application/libraries/dompdf/lib/Cpdf.php on line 4940
