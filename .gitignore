@@ -33,3 +33,4 @@ user_guide_src/cilexer/pycilexer.egg-info/*
 ##exclude imagesMediosao
 application/config/config.php
 application/config/database.php
+assets/images/medios/*
