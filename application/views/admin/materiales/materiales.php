@@ -1,5 +1,6 @@
+<div class="card border-info text-white bg-secondary mb-3">
 <h1 class=" text-center">Materiales</h1>
-<hr>
+</div>
 
 <div class="d-flex justify-content-between my-4">
     <div class="d-flex align-items-center">
@@ -13,7 +14,7 @@
     </div>
 </div>
 <div class="table-responsive-md" id="espectacularesContainer">
-    <table class="table table-hover">
+    <table class="table table-striped table-secondary table-sm table-hover">
         <thead class="thead-dark">
             <tr>
             <th scope="col">Id</th>

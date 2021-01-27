@@ -1,9 +1,9 @@
-<div class="container">
+<div class="card border-info text-white bg-secondary mb-3">
     <h1 class="text-center">CATÁLOGOS</h1>
-    <hr>
+    </div>
     <h3>filtros</h3>
     <form action="<?=base_url("admin/catalogos/catalogoPdf")?>" method="post" id="ftmPdf">
-    <div class="row mt-5">
+    <div class="row mt-2">
         <div class="col-md-3">
             <div class="form-group">
                 <label for="TipoMedio">Tipo de medio </label>
@@ -56,7 +56,7 @@
 
     </div>
     <div class="table-responsive mt-2">
-        <table class="table">
+        <table class="table table-striped table-secondary table-sm">
           <thead class="thead-dark">
             <tr>
               <th scope="col">#</th>

@@ -1,6 +1,10 @@
+<div class="card border-info text-white bg-secondary mb-3">
 <h1 class=" text-center">Vallas Moviles</h1>
-    <hr>
+</div>
+
+
 <!-- <?php var_dump($vallas_moviles)?> -->
+
 
 <div class="d-flex justify-content-between my-4">
     <div class="d-flex align-items-center">
@@ -13,7 +17,7 @@
 </div>
 <div class="" id="clientesContainer">
     <div class="table-responsive" id="espectacularesContainer">
-        <table class="table" id="table">
+        <table class="table table-striped table-secondary table-sm" id="table">
         <thead class="thead-dark">
             <tr>
             <th>#</th>

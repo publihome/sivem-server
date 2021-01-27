@@ -1,6 +1,6 @@
-
+<div class="card border-info text-white bg-secondary mb-3">
 <h1 class="text-center">Clientes</h1>
-    <hr>
+</div>
     <div class="d-flex justify-content-between my-4 ">
         <div class="d-flex align-items-center">
             <input type="text" class="form-control mr-2" id="buscadorValla" name="buscadorValla" value=""  placeholder="Buscar cliente">
@@ -11,7 +11,7 @@
         </div>
     </div>
     <div class="table-responsive" id="clientesContainer">
-    <table class="table " id="table">
+    <table class="table table-striped table-secondary table-sm" id="table">
     <thead class="thead-dark">
         <tr>
         <th>#</th>

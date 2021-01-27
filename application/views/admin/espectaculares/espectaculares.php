@@ -1,6 +1,7 @@
+<div class="card border-info text-white bg-secondary mb-3">
 <h1 class=" text-center">Espectaculares</h1>
 <!-- <?php var_dump($espectaculares)?> -->
-<hr>
+</div>
 <div class="d-flex justify-content-between my-4">
     <div class="d-flex align-items-center">
         <input type="text" class="form-control mr-2" id="buscadorespactacular" name="buscadorespactacular" value=""
@@ -12,7 +13,7 @@
     </div>
 </div>
 <div class="table-responsive" id="espectacularesContainer">
-<table class="table" id="table">
+<table class="table table-striped table-secondary table-sm" id="table">
   <thead class="thead-dark">
     <tr>
       <th>#</th>

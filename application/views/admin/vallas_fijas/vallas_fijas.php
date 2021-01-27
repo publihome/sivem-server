@@ -1,5 +1,6 @@
-<h1 class=" text-center">Vallas</h1>
-                <hr>
+<div class="card border-info text-white bg-secondary mb-3">
+<h1 class=" text-center">Vallas Fijas</h1>
+</div>
 
                 <?php
 if(empty($vallas_fijas)){?>
@@ -23,7 +24,7 @@ if(empty($vallas_fijas)){?>
             </div>
         </div>
         <div class="table-responsive-md" id="espectacularesContainer">
-        <table class="table" id="table">
+        <table class="table table-striped table-secondary table-sm" id="table">
         <thead class="thead-dark">
             <tr>
             <th>#</th>
