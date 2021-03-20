@@ -4,7 +4,11 @@ $("#menu").click(function(e){
     // $("#menu").html(" <li class='navbar-horizontal_li' id='menuUp> <a >MENU <i class='fas fa-times'></i> </a></li>  ")
 })
 
-
+// window.addEventListener("scroll", function(e){
+//     innerHeight == 
+// // })
+// let table =document.getElementsByClassName("table").item;
+// console.log(table)
 
 // function capitalize(str){
 //     return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();

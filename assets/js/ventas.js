@@ -5,6 +5,8 @@ const horainicio = document.querySelector("#horainicio")
 const horatermino = document.querySelector("#horatermino")
 const choferdiv = document.querySelector("#choferdiv")
 const descuentoCantidadvendedor = document.querySelector(".descuentoCantidadvendedor")
+const descuentoCantidad = document.querySelector(".descuentoCantidad")
+
 
 let fechaInicio = {};
 let fechaTermino = {};
@@ -45,13 +47,15 @@ $("#descuento").change(function(){
                 obtenerDesc()
         }
 })
+if (window.descuentoCantidad === ""){
+        descuentoCantidadvendedor.addEventListener("keyup", function(e){
+                e.preventDefault();
+                if(esMayorA20(e.target.value)){
+                        this.value = 20
+                }
+        })
+}
 
-descuentoCantidadvendedor.addEventListener("keyup", function(e){
-        e.preventDefault();
-        if(esMayorA20(e.target.value)){
-                this.value = 20
-        }
-})
 
 function esMayorA20(number){
         if(number>20){
