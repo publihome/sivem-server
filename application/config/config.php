@@ -23,7 +23,7 @@ date_default_timezone_set('America/Mexico_City');
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = 'https://sivem.blindin.mx/';
+$config['base_url'] = 'https://localhost/sivem/';
 
 /*
 |--------------------------------------------------------------------------

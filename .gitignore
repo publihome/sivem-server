@@ -6,6 +6,8 @@ application/cache/*
 application/logs/*
 !application/logs/index.html
 
+application/config/config.php
+application/config/database.php
 !application/*/.htaccess
 
 composer.lock
@@ -31,6 +33,5 @@ user_guide_src/cilexer/pycilexer.egg-info/*
 /tests/results/
 
 ##exclude imagesMediosao
-application/config/config.php
-application/config/database.php
+
 assets/images/medios/*
