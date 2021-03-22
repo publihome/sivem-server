@@ -62,6 +62,13 @@ class Models extends CI_model
 	
 		// Output the generated PDF (1 = download and 0 = preview)
 		$this->dompdf->stream("Catalogo.pdf", array("Attachment"=>0));
+						$f;
+				$l;
+				if(headers_sent($f,$l))
+				{
+					echo $f,'<br/>',$l,'<br/>';
+					die('now detect line');
+				}
 	
 	}
 
