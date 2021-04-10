@@ -11,11 +11,9 @@
     <style>
 
         body{
-            /* font-family: 'Poppins', sans-serif; */
 
         }
         .contenedor{
-            /* font-family: 'Poppins', sans-serif; */
             display: block;
             width:95%;
             max-width: 95%;
@@ -37,9 +35,7 @@
          .imagen-grande{
             width:59%;
             max-width: 59%;
-            /* height:100%; */
             margin:2.5px;
-            /* border: 1px solid #000; */
         }
 
         .images-pequenas{
@@ -50,12 +46,6 @@
             height: 90%;
          
         }
-
-        /* .img-cont-peq{
-            width: 100%;
-            height: 48%;
-            max-height: 48%;
-        } */
 
          .imagen-pequena{
             width: 100%;
@@ -69,7 +59,6 @@
             width: 100%;
             height: 100%%;
             max-height: 100%;
-            /* margin:2.5px; */
             object-fit: fill;
 
         }
@@ -92,10 +81,7 @@
             display: flex; 
             flex-wrap: wrap;
             line-height: 1.1;
-            /* height: 40%; */
             max-height: 40%;
-            /* border: 1px solid red; */
-            /* margin-top: -10px; */
              position: relative; */
 
         }
@@ -116,7 +102,6 @@
         }
 
         .logo_medios_pg1{
-            /* width: 800px; */
             height: 100px;
             margin-top: 50px;
 
@@ -142,8 +127,7 @@
             position: absolute;
             right:15%;
             bottom:-23%;
-            /* line-height: 1; */
-            /* border-left: 1px solid #000; */
+          
 
         }
         .tabla{
@@ -152,15 +136,6 @@
             max-width: 58%;
             display:flex;
         }
-
-        /* th{
-            font-size: 14px;
-        }
-        tr, td{
-            font-size: 12px;
-            padding: 2px;
-
-        } */
 
         .table {
          width: 100%;
