@@ -1,28 +1,15 @@
 <?php
+		require FCPATH.'/vendor/autoload.php';
+
+		use Spipu\Html2Pdf\Html2Pdf;
+		use Spipu\Html2Pdf\Exception\Html2PdfException;
+		use Spipu\Html2Pdf\Exception\ExceptionFormatter;
 class Models extends CI_model
 {
 	
 	 function __construct()
 	{
 		$this->load->database();
-	}
-
-	public function obtenerStatus(){
-		$sql = $this->db->get('status');
-		return $sql->result_array();
-	}
-
-	public function addLonche($producto_id,$cantidad,$precio){
-		$datos = array('usuario_id' => $this->session->userdata('id'),
-						'producto_id' => $producto_id,
-						'cantidad' => $cantidad,
-						'precio' => $precio,
-						'total' => $precio * $cantidad);	
-		$sql = $this->db->insert('lonche',$datos);
-		if($sql){
-			return true;
-		}else
-		return false;
 	}
 
 	function obtenerTiposdePago(){
@@ -90,6 +77,23 @@ class Models extends CI_model
 		// Output the generated PDF (1 = download and 0 = preview)
 		$this->dompdf->stream("olv.pdf", array("Attachment"=>0));
 	
+	}
+
+	public function generatePdfs($medios){
+		// return $html;
+		ob_start();
+		include dirname(__FILE__).'./../views/admin/catalogos/catPdf.php';
+		// $html = $data;
+		$this->load->view('admin/catalogos/catPdf',$medios);
+		$content = ob_get_clean();
+
+		// var_dump($content);
+		// exit;
+		$html2pdf = new Html2Pdf('l', 'A4', 'fr');
+		$html2pdf->writeHTML($content);
+		$html2pdf->output();
+
+
 	}
 
 	
