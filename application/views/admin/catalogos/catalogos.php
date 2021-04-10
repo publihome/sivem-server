@@ -2,7 +2,7 @@
     <h1 class="text-center">CATÁLOGOS</h1>
     <hr>
     <h3>filtros</h3>
-    <form action="<?=base_url("admin/catalogos/catalogoPdf")?>" method="post" id="ftmPdf">
+    <form action="<?=base_url("admin/catalogos/catalogosPdf")?>" method="post" id="ftmPdf">
     <div class="row mt-5">
         <div class="col-md-3">
             <div class="form-group">
