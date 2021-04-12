@@ -5,9 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Catalogo</title>
     <!-- <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
-    <link rel="shortcut icon" href="<?=base_url("assets/images/logosis.png")?>" type="image/x-icon">-->
-    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">  -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">-->
+    <link rel="shortcut icon" href="<?=base_url("assets/images/logosis.png")?>" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous"> 
+    <script>
+</script>
     <style>
 
         body{
@@ -121,12 +123,12 @@
         }
 
         .foot{
-            width: 250px;
-            height: 250px;
+            width: 280px;
+            height: 280px;
             font-size: 15px;
             position: absolute;
-            right:15%;
-            bottom:-23%;
+            right:6%;
+            bottom:-34%;
           
 
         }
@@ -149,10 +151,11 @@
             text-align: left;
             vertical-align: top;
             border: 1px solid #000;
-            border-spacing: 0px;
+            border-spacing: 0;
             border-collapse: collapse;
+            
             padding: 3px;
-        }
+        } 
 
 
 
@@ -190,20 +193,14 @@
                 <?php 
 					if(file_exists(BASEPATH.'../assets/images/medios/'.$medio['vista_media'])){
                 ?>  
-                    <!-- <div clas="img-cont-peq"> -->
                          <img src="<?= BASEPATH.'../assets/images/medios/'.$medio['vista_media']?>" class=" imagen-pequena" alt=""> 
-                    <!-- </div> -->
-
                 <?php
                     }
                 ?>
                 <?php 
 					if(file_exists(BASEPATH.'../assets/images/medios/'.$medio['vista_corta'])){
                 ?>
-                    <!-- <div clas="img-cont-peq"> -->
-
                          <img src="<?= BASEPATH.'../assets/images/medios/'.$medio['vista_corta']?>" class=" imagen-pequena" alt=""> 
-                    <!-- </div> -->
 
                 <?php
                     }
@@ -213,7 +210,7 @@
         <div class="info">
             <div class="tabla">
                 <?php if($medio["tipo_medio"] == "Vallas movil"){?>
-                    <table class="table table-bordered table-sm">
+                    <table class="table">
                         <tr>
                             <th>SITIO</th>
                             <th colspan=3 style="color:red;"><?=$medio['nocontrol']?></th>
@@ -270,11 +267,15 @@
             </div>
             </div>
 
+            <div class="prueba">
+            </div>
+
         <div class="foot">
-            <p>La Soledad N* 115, Fracc. Colinas de la Soledad,
+            <small>
+                La Soledad N* 115, Fracc. Colinas de la Soledad,
                 San Felipe del Agua, Oaxaca, Oax. C.P 68044
                 Tel. (951) 5038220, publi.home@hotmail.com
-            </p>
+            </small>
         </div> 
 
  
@@ -284,3 +285,6 @@
     <?php endforeach?> 
 </body>
 </html>
+
+
+

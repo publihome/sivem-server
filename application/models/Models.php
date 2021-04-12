@@ -80,6 +80,7 @@ class Models extends CI_model
 	}
 
 	public function generatePdfs($medios){
+
 		// return $html;
 		ob_start();
 		include dirname(__FILE__).'./../views/admin/catalogos/catPdf.php';
@@ -89,7 +90,7 @@ class Models extends CI_model
 
 		// var_dump($content);
 		// exit;
-		$html2pdf = new Html2Pdf('l', 'A4', 'fr');
+		$html2pdf = new Html2Pdf('l', 'A4', 'es');
 		$html2pdf->writeHTML($content);
 		$html2pdf->output();
 
