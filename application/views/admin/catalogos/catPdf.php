@@ -143,6 +143,8 @@
          width: 100%;
          max-height: 40%;
          border: 1px #000 solid;
+         border-collapse: collapse;
+         table-layout: fixed;
         }
 
         th, td {
