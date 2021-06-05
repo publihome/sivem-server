@@ -36,7 +36,6 @@ class Espectaculares extends CI_Controller {
 		$data['estados'] = $this->Models->obtenerEstados();
 		$data['materiales'] = $this->MaterialesModel->obtenerMateriales();
 		
-		// $this->load->view('template/__head');
 		$this->load->view('admin/templates/__head');
 		$this->load->view('admin/templates/__nav');
 		$this->load->view('admin/espectaculares/agregarEspectacular',$data);
@@ -186,7 +185,6 @@ class Espectaculares extends CI_Controller {
 							echo json_encode(array('success' => 'Espectacular agregado'));
 					}
 				}
-
 			}
 		}else{
 			redirect('login');
@@ -218,8 +216,6 @@ class Espectaculares extends CI_Controller {
 						echo json_encode(array('success', 'Espectacular eliminado'));
 					}
 					}
-				
-
 	 	}else{
 	 		redirect('login');
 	 	}
@@ -277,9 +273,6 @@ class Espectaculares extends CI_Controller {
 			$precio = $this->input->post('precio');
 			$status = $this->input->post('status');
 
-			// $formData =$this->input->post();
-			//   echo json_encode($dataMaterial);
-			//    exit;
     	    $config['upload_path'] = "./assets/images/medios";
 		    $config['allowed_types'] = "*";       	
 			$this->load->library('upload', $config);

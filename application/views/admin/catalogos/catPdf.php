@@ -12,9 +12,7 @@
 </script>
     <style>
 
-        body{
-
-        }
+    
         .contenedor{
             display: block;
             width:95%;
@@ -59,7 +57,7 @@
 
          .img-grande{
             width: 100%;
-            height: 100%%;
+            height: 100%;
             max-height: 100%;
             object-fit: fill;
 
@@ -84,7 +82,7 @@
             flex-wrap: wrap;
             line-height: 1.1;
             max-height: 40%;
-             position: relative; */
+             position: relative; 
 
         }
 

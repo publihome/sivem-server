@@ -1,65 +1,51 @@
 const p = location.href
 p2  = p.lastIndexOf("admin")
 let path = p.slice(0, p2)
-//  console.log(path)
-
 
 const estadoSelect =  document.getElementById('estadoselect');
 const selectStatus = document.querySelector("#status");
 const inicioOcupacion = document.querySelector("#desdeDiv");
 const terminoOcupacion = document.querySelector("#hastaDiv");
+if (selectStatus != null){
+    selectStatus.addEventListener("change", function(e){
+        e.preventDefault();
+        console.log(this.value)
+        if(this.value == "OCUPADO"){
+            terminoOcupacion.classList.remove("d-none");
+            inicioOcupacion.classList.add("d-none");
+        }else if(this.value == "APARTADO"){
+            inicioOcupacion.classList.remove("d-none");
+            terminoOcupacion.classList.remove("d-none");
+        }else{
+            inicioOcupacion.classList.add("d-none");
+            terminoOcupacion.classList.add("d-none");
+        }
+    })
 
-
-selectStatus.addEventListener("change", function(e){
-    e.preventDefault();
-    console.log(this.value)
-    if(this.value == "OCUPADO"){
-        terminoOcupacion.classList.remove("d-none");
-        inicioOcupacion.classList.add("d-none");
-    }else if(this.value == "APARTADO"){
-        inicioOcupacion.classList.remove("d-none");
-        terminoOcupacion.classList.remove("d-none");
-    }else{
-        inicioOcupacion.classList.add("d-none");
-        terminoOcupacion.classList.add("d-none");
-    }
-})
+}
 
 $('#estadoselect').change(function(e){
-    $("#municipioselect option[value!='']").remove();
-
     e.preventDefault();
+    $("#municipioselect option[value!='']").remove();
     datos="";
 
 })
 
-estadoSelect.addEventListener('change', function(e){
-    e .preventDefault()
-    let estado = this.value.split(',');
-    // estado = estado[1].replace(/[\u0300-\u036f]/g, "");
-    console.log(estado)
-    obtenerMunicipiosSistema(estado[0])
-    // obtenerMunicipios(estado)
-})
+if(estadoSelect){
+    estadoSelect.addEventListener('change', function(e){
+        e .preventDefault()
+        let estado = this.value.split(',');
+        obtenerMunicipiosSistema(estado[0])
+    })
+
+}
 
 function obtenerMunicipiosSistema(id){
      $.get(path +"admin/espectaculares/obtenerMunicipios/" + id,function(response){
          let res= JSON.parse(response)
-         console.log(res);
          agregarMunicipiosSelect(res)
      })
 }
-
-// async function obtenerMunicipios(estado){
-//     try{
-//         const res = await fetch(`https://api-sepomex.hckdrk.mx/query/get_municipio_por_estado/${estado}`)
-//         const data = await res.json()
-//         console.log(data.response.municipios)
-//         agregarMunicipiosSelect(data.response.municipios)
-//     }catch(err){
-//     console.log(err)
-//     }
-// }
 
 function agregarMunicipiosSelect(municipios){
     let municipioselect = document.querySelector('#municipioselect')
@@ -90,7 +76,6 @@ $('#guardarespectacular').submit(function(e){
         console.log(res)
           if(res.success){
                 $('.loader').hide();
-
                 alertify.success(res.success)
                 $('#guardarespectacular')[0].reset();
                     setTimeout(() => {
@@ -103,24 +88,19 @@ $('#guardarespectacular').submit(function(e){
       })
       .fail(function(err){
         $('.loader').hide();
-
         alertify.error(err)
-
-
       })
   })
 
 
-// estadoSelect.addEventListener('change', function(e){
-//     e.preventDefault()
-//     console.log(this.value)
-// })
-
 let renta = 0;
-window.costorenta.addEventListener("keyup", function(e){
-    renta = parseFloat(this.value);
-    CalculaPrecio();
-})
+if(window.costorenta != null){
+    window.costorenta.addEventListener("keyup", function(e){
+        renta = parseFloat(this.value);
+        CalculaPrecio();
+    })
+
+}
 
 function CalculaPrecio(){
 let material = document.getElementById('material').value;
@@ -131,7 +111,6 @@ if(material !== ""){
     calcularArea(inputAncho, inputAlto)
 }
 }
-
 
 function calcularArea(b,h){
     let inputCostoInstalacion =  document.getElementById("instalacion")
@@ -148,11 +127,8 @@ function calcularArea(b,h){
 
 function calcularCostoImpresion(a,costo) {
 let material = document.getElementById('material').value;
-
-
     let precio = document.getElementById('precio');
     let mat = material.split(',')
-
     let costoimpresion = a * mat[1];
 
     let costototal = (costoimpresion + costo + renta)

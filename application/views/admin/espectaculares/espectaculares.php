@@ -12,7 +12,7 @@
     </div>
 </div>
 <div class="table-responsive" id="espectacularesContainer">
-<table class="table" id="table">
+<table class="table table-hover table-sm table-responsive-xs" id="table">
   <thead class="thead-dark">
     <tr>
       <th>#</th>
@@ -28,7 +28,6 @@
       <th>Costo material</th>
       <th>Costo total</th>
       <th>Opciones</th>
-      
     </tr>
   </thead>
   <tbody>
@@ -105,7 +104,6 @@ $('.owl-carousel').owlCarousel({
         1000:{
             items:1,
             nav:true,
-            loop:false,
             center: true
 
         }
@@ -136,7 +134,7 @@ function imagesEspecatulares(id){
   })
 }
 
-$('#monto').mask('000000');
+// $('#monto').mask('000000');
 
 </script>
 
