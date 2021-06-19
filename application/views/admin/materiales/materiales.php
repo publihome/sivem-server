@@ -66,7 +66,7 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="preciomaterial">Precio </label>
-                            <input type="number" class="form-control" id="preciomaterial" name="preciomaterial" required >
+                            <input type="number" class="form-control preciomaterial" id="preciomaterial" name="preciomaterial" required >
                         </div>
                     </div>
 
@@ -123,7 +123,7 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="precio">Precio </label>
-                            <input type="number" class="form-control" id="precio" name="precio" value="" required step="any">
+                            <input type="number" class="form-control preciomaterial" id="precio" name="precio" value="" required step="any">
                         </div>
                     </div>
 

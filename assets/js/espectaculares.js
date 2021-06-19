@@ -12,7 +12,7 @@ if (selectStatus != null){
         console.log(this.value)
         if(this.value == "OCUPADO"){
             terminoOcupacion.classList.remove("d-none");
-            inicioOcupacion.classList.add("d-none");
+            inicioOcupacion.classList.remove("d-none");
         }else if(this.value == "APARTADO"){
             inicioOcupacion.classList.remove("d-none");
             terminoOcupacion.classList.remove("d-none");
@@ -22,7 +22,23 @@ if (selectStatus != null){
         }
     })
 
+    addEventListener('load', function(e){
+        e.preventDefault()
+          if(selectStatus.value == "OCUPADO"){
+            terminoOcupacion.classList.remove("d-none");
+            inicioOcupacion.classList.add("d-none");
+        }else if(selectStatus.value == "PROXIMO"){
+            inicioOcupacion.classList.remove("d-none");
+            terminoOcupacion.classList.remove("d-none");
+        }else{
+            inicioOcupacion.classList.add("d-none");
+            terminoOcupacion.classList.add("d-none");
+        }
+        console.log("inicio este pedo");
+    })
+
 }
+
 
 $('#estadoselect').change(function(e){
     e.preventDefault();
@@ -37,7 +53,6 @@ if(estadoSelect){
         let estado = this.value.split(',');
         obtenerMunicipiosSistema(estado[0])
     })
-
 }
 
 function obtenerMunicipiosSistema(id){
@@ -93,7 +108,7 @@ $('#guardarespectacular').submit(function(e){
   })
 
 
-let renta = 0;
+let renta = document.getElementById('costorenta')  ? parseInt(document.getElementById('costorenta').value) : 0 ;
 if(window.costorenta != null){
     window.costorenta.addEventListener("keyup", function(e){
         renta = parseFloat(this.value);
@@ -122,16 +137,16 @@ function calcularArea(b,h){
         costo = 800
     }
     inputCostoInstalacion.value = costo
-     calcularCostoImpresion(a,costo)
+    calcularCostoImpresion(a,costo)
 }
 
 function calcularCostoImpresion(a,costo) {
-let material = document.getElementById('material').value;
+    let material = document.getElementById('material').value;
     let precio = document.getElementById('precio');
     let mat = material.split(',')
     let costoimpresion = a * mat[1];
-
-    let costototal = (costoimpresion + costo + renta)
+    costoimpresion = Math.round(costoimpresion)
+    let costototal = costoimpresion + costo + renta
     window.costoimpreso.value = costoimpresion
     precio.value= costototal
     console.log(costoimpresion)

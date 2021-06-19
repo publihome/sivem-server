@@ -23,10 +23,12 @@ class MediosModel extends CI_model
         }
     }
 
-    public function guardarCambiosMedio($medio_id,$precio,$status){
+    public function guardarCambiosMedio($medio_id,$precio,$status, $fechaInicioOcupacion, $fechaTerminoOcupacion){
         $datos = array(
             'status' => $status,
             'precio' => $precio,
+            'fecha_inicio_ocupacion' => $fechaInicioOcupacion,
+            'fecha_termino_ocupacion' => $fechaTerminoOcupacion
         );
         $this->db->where('id', $medio_id);
         $sql = $this->db->update('medios', $datos);

@@ -272,6 +272,14 @@ class Espectaculares extends CI_Controller {
 			$medio_id = $this->input->post('id_medio');
 			$precio = $this->input->post('precio');
 			$status = $this->input->post('status');
+			$fechaInicioOcupacion ="";
+			$fechaTerminoOcupacion ="";
+			if($status == "APARTADO"){
+				$fechaInicioOcupacion = $this->input->post("inicioOcupacion");
+				$fechaTerminoOcupacion = $this->input->post("terminoOcupacion");
+			}elseif($status == "OCUPADO"){
+				$fechaTerminoOcupacion = $this->input->post("terminoOcupacion");
+			}
 
     	    $config['upload_path'] = "./assets/images/medios";
 		    $config['allowed_types'] = "*";       	
@@ -320,13 +328,11 @@ class Espectaculares extends CI_Controller {
 				 }
 				 if($imagen2 != ''){
 					if(file_exists("assets/images/medios/". $datosDeEspectaculares['vista_media'])){
-
 						unlink("assets/images/medios/". $datosDeEspectaculares['vista_media']);
 					}
 				 }
 				 if($imagen3 != ''){
 					if(file_exists("assets/images/medios/". $datosDeEspectaculares['vista_larga'])){
-
 						unlink("assets/images/medios/". $datosDeEspectaculares['vista_larga']);
 					}
 				 }
@@ -346,7 +352,7 @@ class Espectaculares extends CI_Controller {
 				}
 			}
 
-			 if(!$edMedio = $this->MediosModel->guardarCambiosMedio($medio_id,$precio,$status)){
+			 if(!$edMedio = $this->MediosModel->guardarCambiosMedio($medio_id,$precio,$status,$fechaInicioOcupacion,$fechaTerminoOcupacion)){
 			 	echo json_encode(array('error'=>' no se pudeo editar el medio'));
 				// echo json_encode(array($medio_id,$precio,$status));
 			 	// exit;

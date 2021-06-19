@@ -58,4 +58,22 @@ class MaterialesModel extends CI_model{
 			return false;
 		}
 	}
+
+	public function actualizarPreciosDeImpresionEsp($id_esp, $costoImp){
+		$data = array(
+			"costo_impresion" => $costoImp,
+		);
+		$this->db->where('id', $id_esp);
+		$this->db->update("espectaculares",$data);
+	}
+
+	public function actualizarCostoTotal($id_medio, $costoTotal){
+		$data = array(
+			"precio" => $costoTotal,
+		);
+		$this->db->where('id', $id_medio);
+		$this->db->update("medios",$data);
+	}
+
+
 }

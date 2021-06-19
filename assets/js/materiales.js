@@ -70,13 +70,12 @@ $("#frmEditarMaterial").submit(function(e){
         console.log(res)
         if(res.success){
             alertify.success(res.success);
-            $("#editarMaterial").model("hidden")
-           location.reload();
-       }
+            $("#editarMaterial").modal("hide")
+        //    location.reload();
+        }
         if(res.error){
             alertify.error(res.error);
         }
-        console.log(res);
      })
     .fail(function(err){
         console.log("error")
@@ -112,5 +111,3 @@ async function eliminarMaterial(id){
     //   alertify.error('Cancel');
     });
 }
-
-$("#preciomaterial").mask("0000.00")

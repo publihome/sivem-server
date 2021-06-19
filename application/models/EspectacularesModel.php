@@ -72,6 +72,8 @@ class EspectacularesModel extends CI_model{
         monto,
         medios.precio as precio,
         medios.id as id_medio,
+        medios.fecha_inicio_ocupacion,
+        medios.fecha_termino_ocupacion,
         folio,
         id_tipo_pago,
         id_periodo_pago,
@@ -121,6 +123,8 @@ class EspectacularesModel extends CI_model{
         id_propietario,
         fecha_inicio,
         fecha_termino,
+        medios.fecha_inicio_ocupacion,
+        medios.fecha_termino_ocupacion,
         monto,
         folio,
         id_tipo_pago,
@@ -340,6 +344,16 @@ class EspectacularesModel extends CI_model{
         }else{
             return false;
         }
+    }
+
+    public function obtenerEspectacularesByIdMaterial($id){
+        $sql = $this->db->get_where('espectaculares', array("id_material"=> $id));
+        if($sql){
+            return $sql->result_array();
+        }else{
+            return false;
+        }
+
     }
 
 }

@@ -6,6 +6,9 @@ class Materiales extends CI_Controller {
 	public function __Construct(){
 		parent::__Construct();
 		 $this->load->model('MaterialesModel');
+		 $this->load->model('EspectacularesModel');
+		 $this->load->model('Vallas_fijasModel');
+		 $this->load->model('Vallas_movilesModel');
 
 	}
 	public function index()
@@ -61,11 +64,12 @@ class Materiales extends CI_Controller {
 			$precio = $this->input->post("precio");
 			$unidad = $this->input->post("unidad");
 			$descripcion = $this->input->post("descripcion");
+			 $this->actualizarLosPreciosDeImpresion($id_material, $precio);
 
 			if(!$datos = $this->MaterialesModel->editarMaterial($id_material,$nombre,$precio,$unidad, $descripcion)){
 				echo json_encode(array("error" => "ha ocurrido un error, intenta mas tarde"));
 			}else{
-				echo json_encode(array("success " => "Material agregago correctamente"));
+				echo json_encode(array("success" => "Material agregago correctamente"));
 			}
 			
 		}else{
@@ -86,6 +90,27 @@ class Materiales extends CI_Controller {
 			
 		}else{
 			redirect('login');
+		}
+	}
+
+	public function actualizarLosPreciosDeImpresion($id_material,$precio){
+		if($espectaculares = $this->EspectacularesModel->obtenerEspectacularesByIdMaterial($id_material)){
+			foreach($espectaculares as $esp){
+				$costoImpresion = round(($esp["ancho"] * $esp["alto"]) * $precio, 0);
+				$costoTotal = round($costoImpresion + $esp['costo_instalacion'] + $esp["costo_renta"]);
+				$this->MaterialesModel->actualizarPreciosDeImpresionEsp($esp['id'],$costoImpresion);
+				$this->MaterialesModel->actualizarCostoTotal($esp['id_medio'],$costoTotal);
+			}
+		}
+		if($vallas = $this->VallasModel->obtenerVallasByIdMaterial($id_material)){
+			if(count($vallas)>0){
+				foreach($vallas as $valla){
+					$costoImpresionv = round(($valla["ancho"] * $valla["alto"]) * $precio, 0);
+					$costoTotalv = round($costoImpresionv + $valla['costo_instalacion'] + $valla["costo_renta"]);
+					$this->MaterialesModel->actualizarPreciosDeImpresionVall($valla['id'],$costoImpresionv);
+					$this->MaterialesModel->actualizarCostoTotal($valla['id_medio'],$costoTotalv);
+				}
+			}
 		}
 	}
 

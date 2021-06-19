@@ -66,16 +66,14 @@
   <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Fotografías del espectacular <?=$espectacular['nocontrol']?></h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <h5 class="modal-title" id="ModalTitle"></h5>
+        <button type="button" onclick="removeImg()" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-        <div class="owl-carousel">
-            <div><img id="img1" class="img-carousel" alt=""></div>
-            <div><img id="img2" class="img-carousel" alt=""></div>
-            <div><img id="img3" class="img-carousel" alt=""></div>
-        </div>
+      <div id="carousel">
+      </div>
+
       </div>
   </div>
 </div>
@@ -83,9 +81,40 @@
 <script src="<?= base_url('assets/js/espectaculares.js')?>"></script>
 
 <script>
+function removeImg(){
+    $(".img-carousel").removeAttr('src');
+    // $("#img2").removeAttr('src');
+    // $("#img3").removeAttr('src');
+}
 
+function imagesEspecatulares(id){
+  $.get('espectaculares/obtenerImagenesEspectacularPorId/'+id, function(response){
+    // console.log(response);
+    if(response == ''){
+    }else{
+      let resp = JSON.parse(response);
+      console.log(resp);
+      
+      resp.map(res =>{
+        
+           document.getElementById('ModalTitle').innerHTML = `Imagenes del espectacular ${res.nocontrol}`
+           document.getElementById('carousel').innerHTML= `
+           <div class="owl-carousel">
+              <div><img src="../assets/images/medios/${res.vista_corta}" id="img1" class="img-carousel" alt=""></div>
+              <div><img src="../assets/images/medios/${res.vista_media}" id="img2" class="img-carousel" alt=""></div>
+              <div><img src="../assets/images/medios/${res.vista_larga}" id="img3" class="img-carousel" alt=""></div>
+            </div>
+           
+           `
+          //  let element = document.querySelectorAll('.img-carousel')
+          //  console.log(element)
+          //    element[0].setAttribute('src',`<?= base_url()?>assets/images/medios/${res.vista_corta}`);
+          //    element[1].setAttribute('src',`<?= base_url()?>assets/images/medios/${res.vista_media}`);
+          //    element[2].setAttribute('src',`<?= base_url()?>assets/images/medios/${res.vista_larga}`);
 
-$('.owl-carousel').owlCarousel({
+           
+         })
+         $('.owl-carousel').owlCarousel({
     loop:true,
     margin:0,
     responsiveClass:true,
@@ -109,30 +138,12 @@ $('.owl-carousel').owlCarousel({
         }
     }
 })
-
-$('.owl-carousel').on('mousewheel', '.owl-stage', function (e) {
-    if (e.deltaY>0) {
-        owl.trigger('next.owl');
-    } else {
-        owl.trigger('prev.owl');
-    }
-    e.preventDefault();
-});
-
-function imagesEspecatulares(id){
-  $.get('espectaculares/obtenerImagenesEspectacularPorId/'+id, function(response){
-    console.log(response);
-    if(response == ''){
-    }else{
-      let resp = JSON.parse(response);
-         resp.map(res =>{
-           $("#img1").attr('src',`<?= base_url()?>assets/images/medios/${res.vista_corta}`);
-           $("#img2").attr('src',`<?= base_url()?>assets/images/medios/${res.vista_media}`);
-           $("#img3").attr('src',`<?= base_url()?>assets/images/medios/${res.vista_larga}`);
-         })
     }
   })
+
+
 }
+
 
 // $('#monto').mask('000000');
 

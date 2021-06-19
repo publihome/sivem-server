@@ -92,6 +92,8 @@
                     </div>
                 </div>
 
+
+
                 <div class="col-md-12">
                     <div class="form-group ">
                         <label for="referencias"> Referencias </label>
@@ -176,6 +178,20 @@
                         </select>
                     </div>
                 </div>
+
+                <div class="col-lg-3 col-md-3 d-none" id="desdeDiv">
+                        <div class="form-group">
+                            <label for="hasta" >Fecha inicio de ocupación </label>
+                            <input type="date" class="form-control" id="inicioOcupacion" name="inicioOcupacion">
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-3 d-none" id="hastaDiv">
+                        <div class="form-group">
+                            <label for="hasta" > Fecha termino de ocupación: </label>
+                            <input type="date" class="form-control" id="terminoOcupacion" name="terminoOcupacion" value="<?=$espectacular['fecha_termino_ocupacion']?>">
+                        </div>
+                    </div>
 
                 <div class="col-md-12">
                     <label for="observaciones"> Observaciones </label>
