@@ -102,16 +102,16 @@ class Materiales extends CI_Controller {
 				$this->MaterialesModel->actualizarCostoTotal($esp['id_medio'],$costoTotal);
 			}
 		}
-		if($vallas = $this->VallasModel->obtenerVallasByIdMaterial($id_material)){
-			if(count($vallas)>0){
-				foreach($vallas as $valla){
-					$costoImpresionv = round(($valla["ancho"] * $valla["alto"]) * $precio, 0);
-					$costoTotalv = round($costoImpresionv + $valla['costo_instalacion'] + $valla["costo_renta"]);
-					$this->MaterialesModel->actualizarPreciosDeImpresionVall($valla['id'],$costoImpresionv);
-					$this->MaterialesModel->actualizarCostoTotal($valla['id_medio'],$costoTotalv);
-				}
-			}
-		}
+		// if($vallas = $this->VallasModel->obtenerVallasByIdMaterial($id_material)){
+		// 	if(count($vallas)>0){
+		// 		foreach($vallas as $valla){
+		// 			$costoImpresionv = round(($valla["ancho"] * $valla["alto"]) * $precio, 0);
+		// 			$costoTotalv = round($costoImpresionv + $valla['costo_instalacion'] + $valla["costo_renta"]);
+		// 			$this->MaterialesModel->actualizarPreciosDeImpresionVall($valla['id'],$costoImpresionv);
+		// 			$this->MaterialesModel->actualizarCostoTotal($valla['id_medio'],$costoTotalv);
+		// 		}
+		// 	}
+		// }
 	}
 
 
