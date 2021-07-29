@@ -113,6 +113,7 @@ class Clientes extends CI_Controller {
     function eliminarCliente(){
         if($this->session->userdata('is_logged')){
             $postData = $this->input->post();
+
             if(!$sql = $this->ClientesModel->eliminarCliente($postData['id'])){
                 echo json_encode(array('error' => 'ocurrio un error, intentalo mas tarde'));
             }else{

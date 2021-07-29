@@ -10,8 +10,8 @@
             <a class="btn btn-warning btn add" href="<?= base_url('admin/clientes/agregarcliente')?>" role="button"><i class="fas fa-plus"></i><span> + Nuevo Cliente +</span></a>
         </div>
     </div>
-    <div class="table-responsive" id="clientesContainer">
-    <table class="table " id="table">
+    <div class="table table-responsive" id="clientesContainer">
+    <table class="table table-sm" id="table">
     <thead class="thead-dark">
         <tr>
         <th>#</th>
@@ -50,7 +50,7 @@
         <td>
         <a href="<?= base_url('admin/clientes/editarCliente/'.$cliente['id'])?>" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i> </a>
         <?php if($this->session->userdata("tipo") == 1){?>
-        <a value ="<?= $cliente['id']?>" href="<?= base_url('admin/clientes/elimiarCliente/'.$cliente['id'])?>" class="btn btn-danger btn-sm delete" ><i class="fas fa-trash"></i></a></td>
+        <a onclick="eliminarCliente(<?= $cliente['id']?>)"  class="btn btn-danger btn-sm delete" ><i class="fas fa-trash"></i></a></td>
         <?php } ?>
     </tr>
         <?php $i++;

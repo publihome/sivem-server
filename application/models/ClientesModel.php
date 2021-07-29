@@ -75,7 +75,7 @@ class ClientesModel extends CI_model{
     }
 
     function eliminarCliente($id_cliente){        
-        $sql = $this->db->delete('clientes', array('id',$id_cliente));
+        $sql = $this->db->delete('clientes', array('id' => $id_cliente));
         if($sql){
             return true;
         }else{

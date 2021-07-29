@@ -46,6 +46,7 @@
     <link rel="stylesheet" href="<?= base_url('assets/AlertifyJS/build/css/alertify.min.css')?>">
     <link rel="stylesheet" href="<?= base_url('assets/AlertifyJS/build/css/themes/default.min.css')?>">
     <script src="<?= base_url('assets/AlertifyJS/build/alertify.min.js')?>"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-mask-plugin@1.14.16/dist/jquery.mask.min.js"></script>
 
 
     <!-------------------------------------------------------- F O N T A W E S O M E ------------------------------------------- -->

@@ -193,7 +193,7 @@
                         <div class="form-group">
                             <label for="imagen1" > Vista Larga : </label>
                                 <input type="file"  class="dropify" data-allowed-file-extensions="jpg jpeg"
-                                    id="imagen3" name="imagen3" data-default-file="<?=base_url('assets/images/medios/'.$valla['vista_media'])?>" />
+                                    id="imagen3" name="imagen3" data-default-file="<?=base_url('assets/images/medios/'.$valla['vista_larga'])?>" />
                         </div>
                     </div>
                     <div class="col-lg-12 my-5">

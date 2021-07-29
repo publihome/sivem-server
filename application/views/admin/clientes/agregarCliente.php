@@ -85,6 +85,7 @@
         <button type="submit" class="btn btn-dark">Guardar</button>
     </div>
 </form>
+
 <script>clientesit.classList.add("selected");</script>
 
 <script src="<?= base_url('assets/js/clientes.js')?>"></script>

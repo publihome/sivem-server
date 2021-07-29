@@ -2,6 +2,10 @@ $("#frmAgregar").submit(function(e){
     e.preventDefault();
 
     let formData = new FormData($("#frmAgregar")[0]);
+
+    if(validateInputs()){
+        return 0
+    }
     $.ajax({
         url:'empleados/agregarEmpleado',
         type: 'post',
@@ -20,6 +24,24 @@ $("#frmAgregar").submit(function(e){
     })
 
 })
+
+function validateInputs(){
+    let isInvalid = false
+    let Inputs = document.querySelectorAll('.form-control')
+    let accessoToSystemInput = document.getElementById('acceso')
+    Inputs.forEach(input => {
+        if(accessoToSystemInput.value == "no"){
+            if(input.value == ""){
+                input.classList.add('is-invalid')
+                isInvalid = true
+            }
+        }
+    })
+    console.log(isInvalid)
+    return isInvalid
+
+}
+
 
 /*-------------------------------- E D I T A R  -------------------------------------------- */
 
@@ -129,7 +151,7 @@ function doneFunction(response){
 
 
 /*-------------------------------- M A S K -------------------------------------------- */
-$("#telefono").mask("000-000-00-00");
+$(".telefono").mask("000-000-00-00");
 
 
 const btnAccesso = document.getElementById("acceso");

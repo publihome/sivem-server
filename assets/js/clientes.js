@@ -69,21 +69,22 @@ $(document).ready(function(){
 })
 
 
-$('.delete').click(function(e){
-    e.preventDefault();
-    console.log(this.value)
-
-
+function eliminarCliente(cliente_id){
     $.ajax({
         url:'clientes/eliminarCliente',
         type: 'post',
-        data: {id:this.value},
+        data: {id:cliente_id},
     })
     .done(function(response){
         console.log(response)
+        alertify.success(response.success)
+        setTimeout(() => {
+           window.location.reload(); 
+        }, 1200);
+     })
+    .fail(function(err){
+         console.log(err)
+            alertify.error(err)
 
     })
-    .fail(function(err){
-        console.log(err)
-    })
-})
+}
