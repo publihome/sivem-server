@@ -210,7 +210,7 @@
                     <div class="col-lg-4">
                         <div class="form-group ">
                             <label for="propietario" > Propietario:</label>
-                            <select class="form-control" id="propietario" name="propietario"  >
+                            <select class="form-control" id="propietario" name="propietario">
                                 <option value="nuevo">Nuevo</option>
                                 <option value="registrado">Registrado</option>
                             </select>

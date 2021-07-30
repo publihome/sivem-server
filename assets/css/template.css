@@ -231,6 +231,22 @@ i{
   font-size: 20px;
 }
 
+.info{
+    margin: 10px;
+    border: 1px solid;
+    padding: 5px 10px;
+    border-radius: 5px;
+    display: flex;
+    background: #2B3643;
+    color: white;
+}
+
+.info p {
+  margin: 0px 5px 0px 0px;
+
+
+}
+
 
 /* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
 @media (max-width: 450px) {

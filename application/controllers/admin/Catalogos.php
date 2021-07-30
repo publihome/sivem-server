@@ -126,15 +126,12 @@ class Catalogos extends CI_Controller {
 			$status = $this->input->post("status");
 			$medio = $this->input->post("tipoMedio");
 			$municipio = $this->input->post("municipio");
-			// var_dump($status,$estado,$medio,$municipio);
-			// exit;
 			
 			if($estado == "" && $status == "" && $medio == "" && $municipio == ""){
 				$espectaculares = $this->EspectacularesModel->obtenerEspectacularesIndex();
 				$vallas_fijas = $this->Vallas_fijasModel->obtenerVallas_fijas();
 				$vallas_moviles = $this->Vallas_movilesModel->obtenerVallas_moviles();
 	
-					// var_dump($vallas_fijas);
 					$datos = array_merge($espectaculares,$vallas_fijas,$vallas_moviles);
 					$data['medios'] = $datos;
 			}else{
@@ -145,9 +142,7 @@ class Catalogos extends CI_Controller {
 					$data['medios'] = $m;
 				}
 			}
-			// $data['medios'] = $datos;			
-			$html=$this->load->view('admin/catalogos/catalogoEspectacularesPDF',$data);
-			//$this->load->view('admin/catalogos/catalogoespectacularesPDF',$data);
+
 			//echo $html;
 			$medios = $data['medios'];
 			$this->Models->generatePdfs($medios);

@@ -63,18 +63,16 @@
   <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Fotografías de la valla <?=$valla['nocontrol']?></h5>
+        <h5 class="modal-title" id="ModalTitle"></h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="">
-        <div class="owl-carousel">
-          <div><img id="img1" class="img-responsive" alt=""></div>
-          <div><img id="img2" class="img-responsive" alt=""></div>
-          <div><img id="img3" class="img-responsive" alt=""></div>
-        </div>
-        
+      <div class="info" id="info">       
+      </div>  
+      <div id="carousel">
+      </div>
       </div>
     </div>
   </div>
@@ -83,7 +81,38 @@
 <script src="<?= base_url('assets/js/vallas_moviles.js')?>"></script>
 
 <script>
-$('.owl-carousel').owlCarousel({
+
+function removeImg(){
+    $(".img-carousel").removeAttr('src');
+}
+
+
+function imagesVallas(id){
+  let info = document.getElementById('info')
+
+  $.get('vallas_moviles/obtenerImagenesVallasMovilesPorId/'+id, function(response){
+    if(response == ''){
+    }else{
+      let resp = JSON.parse(response);
+      console.log(resp)
+
+      info.innerHTML = `              
+              <p>${resp[0].marca}</p>
+              <p>${resp[0].modelo}</p>
+              <p>${resp[0].anio}</p>
+
+           `
+         resp.map(res =>{
+          document.getElementById('ModalTitle').innerHTML = `Imagenes de la valla movil ${res.nocontrol}`
+           document.getElementById('carousel').innerHTML= `
+           <div class="owl-carousel">
+              <div><img src="../assets/images/medios/${res.vista_corta}" id="img1" class="img-carousel" alt=""></div>
+              <div><img src="../assets/images/medios/${res.vista_media}" id="img2" class="img-carousel" alt=""></div>
+              <div><img src="../assets/images/medios/${res.vista_larga}" id="img3" class="img-carousel" alt=""></div>
+            </div>`
+         })
+
+         $('.owl-carousel').owlCarousel({
     loop:true,
     margin:0,
     responsiveClass:true,
@@ -108,19 +137,6 @@ $('.owl-carousel').owlCarousel({
         }
     }
 })
-
-function imagesVallas(id){
-  console.log(id);
-  $.get('vallas_moviles/obtenerImagenesVallasMovilesPorId/'+id, function(response){
-    console.log(response);
-    if(response == ''){
-    }else{
-      let resp = JSON.parse(response);
-         resp.map(res =>{
-           $("#img1").attr('src',`<?= base_url()?>assets/images/medios/${res.vista_corta}`);
-           $("#img2").attr('src',`<?= base_url()?>assets/images/medios/${res.vista_media}`);
-           $("#img3").attr('src',`<?= base_url()?>assets/images/medios/${res.vista_larga}`);
-         })
     }
   })
 }

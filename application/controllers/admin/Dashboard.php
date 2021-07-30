@@ -23,6 +23,7 @@ class Dashboard extends CI_Controller {
 			$dentroDeUnMes = mktime(0,0,0, date("m")+1, date("d"), date("Y"));
 			$UnMes = date('Y/m/d', $dentroDeUnMes);
 			$hoy = date('Y/m/d');
+
 	
 			//obtiene los medios que estan apartados en una determinada fecha
 			$apartados = $this->VentasModel->obtenerVenta_mediosPorFechaInicio($hoy);

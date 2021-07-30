@@ -1,5 +1,6 @@
 <div class="container">
-    <h1 class="text-center">CATÁLOGOS</h1>
+    <div class="title">
+        <h1 class="text-center">CATÁLOGOS</h1>
     <hr>
     <h3>filtros</h3>
     <form action="<?=base_url("admin/catalogos/catalogosPdf")?>" method="post" id="ftmPdf">
@@ -73,6 +74,7 @@
           </thead>
           <tbody id="mediosdata"> </tbody>
         </table>
+    </div>
     </div>
 
 </div>

@@ -71,6 +71,8 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
+      <div class="info" id="info">       
+      </div>  
       <div id="carousel">
       </div>
 
@@ -83,18 +85,24 @@
 <script>
 function removeImg(){
     $(".img-carousel").removeAttr('src');
-    // $("#img2").removeAttr('src');
-    // $("#img3").removeAttr('src');
+    
 }
 
 function imagesEspecatulares(id){
   $.get('espectaculares/obtenerImagenesEspectacularPorId/'+id, function(response){
-    // console.log(response);
+    let info = document.getElementById('info')
+        
     if(response == ''){
     }else{
       let resp = JSON.parse(response);
       console.log(resp);
-      
+
+      info.innerHTML = `              
+              <p>${resp[0].calle}</p>
+              <p>${resp[0].numero}</p>
+              <p>${resp[0].colonia}</p>
+
+           `
       resp.map(res =>{
         
            document.getElementById('ModalTitle').innerHTML = `Imagenes del espectacular ${res.nocontrol}`

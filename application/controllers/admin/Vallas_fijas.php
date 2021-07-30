@@ -32,7 +32,6 @@ class Vallas_fijas extends CI_Controller {
         if($this->session->userdata('is_logged')){
             $data['tipos_pago'] = $this->Models->obtenerTiposdePago();
             $data['periodos_pago'] = $this->Models->obtenerPeriodosDePago();
-
             $data['materiales'] = $this->MaterialesModel->obtenerMateriales();
     		$data['estados'] = $this->Models->obtenerEstados();
     		$data['propietarios'] = $this->PropietariosModel->obtenerPropietarios();
@@ -171,7 +170,6 @@ class Vallas_fijas extends CI_Controller {
                 }else{
                     $id_prop = $idprop;
                 }
-
                 if($this->Vallas_fijasModel->agregarValla_fija($numcontrol,$costoimpresion,$costoinstalacion,$calle,$numero,$colonia,$localidad,$municipio,$estado,$latitud,$longitud,$referencias,$ancho,$alto,$material,$costoderenta, $observaciones,$acabados,$imagen1,$imagen2,$imagen3,$id_prop,$id_medio,$iniciocontrato,$fincontrato,$tipopago,$periodo,$monto)){
                      echo json_encode(array("success" => "Valla agreagada con exito"));
                   }

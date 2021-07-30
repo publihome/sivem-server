@@ -10,10 +10,7 @@ const divMensaje = document.querySelector("#mensajesDemediosPorTerminarContrato"
         enviarNotificacion(res.total);
         mostrarMediosPorTerminarContrato(res.medios)
     })
-
-    
 })()
-
 
 function enviarNotificacion(numero){
     divMensaje.innerHTML = ` <div class="alert alert-warning alert-dismissible fade show text-center text-dark" role="alert">
@@ -24,7 +21,6 @@ function enviarNotificacion(numero){
         </button>
     </div>
     ` ;
-
 }
 
 function mostrarMediosPorTerminarContrato(medios){
@@ -63,10 +59,7 @@ function mostrarMediosPorTerminarContrato(medios){
                             <p><b>Status: </b><span>${medio.status} <span></p>
                         </div>
                     </div>
-
-                </div>
-                
-                
+                </div>                
             </div>
             </div>
         </div>

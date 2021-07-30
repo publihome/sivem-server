@@ -32,32 +32,6 @@ class Models extends CI_model
 	/*------------------------------- P D F -------------------------------- */
 
 	
-	public function generatePdf($html){
-
-		// Get output html
-		$html = $this->output->get_output();
-		// Load pdf library
-		$this->load->library('pdf');
-		// Load HTML content
-		$this->dompdf->loadHtml($html);
-	
-		// (Optional) Setup the paper size and orientation
-		$this->dompdf->setPaper('A4', 'landscape');
-	
-		// Render the HTML as PDF
-		$this->dompdf->render();
-	
-		// Output the generated PDF (1 = download and 0 = preview)
-		$this->dompdf->stream("Catalogo.pdf", array("Attachment"=>0));
-						$f;
-				$l;
-				if(headers_sent($f,$l))
-				{
-					echo $f,'<br/>',$l,'<br/>';
-					die('now detect line');
-				}
-	
-	}
 
 	public function generateOrdenCompra($html){
 
@@ -87,18 +61,9 @@ class Models extends CI_model
 		// $html = $data;
 		$this->load->view('admin/catalogos/catPdf',$medios);
 		$content = ob_get_clean();
-
-		// var_dump($content);
-		// exit;
 		$html2pdf = new Html2Pdf('l', 'A4', 'es');
 		$html2pdf->writeHTML($content);
 		$html2pdf->output();
 
-
 	}
-
-	
-
-	
-
 }

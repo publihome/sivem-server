@@ -19,7 +19,7 @@ const selectStatus = document.querySelector("#status");
 const inicioOcupacion = document.querySelector("#desdeDiv");
 const terminoOcupacion = document.querySelector("#hastaDiv");
 
-
+    if(selectStatus){
     selectStatus.addEventListener("change", function(e){
         e.preventDefault();
         console.log(this.value)
@@ -35,6 +35,7 @@ const terminoOcupacion = document.querySelector("#hastaDiv");
             terminoOcupacion.classList.add("d-none");
         }
     })
+    }
 
     // selectUbicacion.addEventListener("change",function(e){
     //     e.preventDefault()
@@ -61,6 +62,7 @@ const terminoOcupacion = document.querySelector("#hastaDiv");
     // })
     // const propietario = document.querySelector("#propietario");
 
+    if(window.propietario){
     window.propietario.addEventListener("change", function(e){
         e.preventDefault()
         if(this.value == "registrado"){
@@ -76,6 +78,7 @@ const terminoOcupacion = document.querySelector("#hastaDiv");
 
         }
     })
+}
 
 
     

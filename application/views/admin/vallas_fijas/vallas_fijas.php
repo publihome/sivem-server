@@ -1,7 +1,6 @@
 <h1 class=" text-center">Vallas</h1>
-                <hr>
-
-                <?php
+  <hr>
+<?php
 if(empty($vallas_fijas)){?>
   <div class="no-data">
     <img src="<?= base_url("assets/images/404.jpg")?>" alt="sin-archivos" class="no-data__image">
@@ -69,18 +68,17 @@ if(empty($vallas_fijas)){?>
   <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Fotografías de la valla <?=$valla['nocontrol']?></h5>
+        <h5 class="modal-title" id="ModalTitle"></h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="">
-        <div class="owl-carousel">
-          <div><img id="img1" class="img-responsive" alt=""></div>
-          <div><img id="img2" class="img-responsive" alt=""></div>
-          <div><img id="img3" class="img-responsive" alt=""></div>
-        </div>
-        
+           <div class="info" id="info">
+              
+           </div>
+           <div id="carousel">
+          </div>  
       </div>
     </div>
   </div>
@@ -90,13 +88,44 @@ if(empty($vallas_fijas)){?>
 
 <script>
 
+function removeImg(){
+    $(".img-carousel").removeAttr('src');
+    
+}
 
-$('.owl-carousel').owlCarousel({
+
+function imagesEspecatulares(id){
+  let info = document.getElementById('info')
+  
+  $.get('vallas_fijas/obtenerImagenesVallasFijasPorId/'+id, function(response){
+    if(response == ''){
+    }else{
+      let resp = JSON.parse(response);
+      console.log(resp)
+
+      info.innerHTML = `              
+              <p>${resp[0].calle}</p>
+              <p>${resp[0].numero}</p>
+              <p>${resp[0].colonia}</p>
+
+           `
+         resp.map(res =>{
+          document.getElementById('ModalTitle').innerHTML = `Imagenes del la valla ${res.nocontrol}`
+           document.getElementById('carousel').innerHTML= `
+           <div class="owl-carousel">
+              <div><img src="../assets/images/medios/${res.vista_corta}" id="img1" class="img-carousel" alt=""></div>
+              <div><img src="../assets/images/medios/${res.vista_media}" id="img2" class="img-carousel" alt=""></div>
+              <div><img src="../assets/images/medios/${res.vista_larga}" id="img3" class="img-carousel" alt=""></div>
+            </div>
+           `
+           
+         })
+
+         $('.owl-carousel').owlCarousel({
     loop:true,
     margin:0,
     responsiveClass:true,
     center: true,
-    nav: true,
     responsive:{
         0:{
             items:1,
@@ -110,27 +139,16 @@ $('.owl-carousel').owlCarousel({
         1000:{
             items:1,
             nav:true,
-            loop:false,
+            loop:true,
             center: true
-
         }
     }
 })
 
-function imagesEspecatulares(id){
-  console.log(id);
-  $.get('vallas_fijas/obtenerImagenesVallasFijasPorId/'+id, function(response){
-    console.log(response);
-    if(response == ''){
-    }else{
-      let resp = JSON.parse(response);
-         resp.map(res =>{
-           $("#img1").attr('src',`<?= base_url()?>assets/images/medios/${res.vista_corta}`);
-           $("#img2").attr('src',`<?= base_url()?>assets/images/medios/${res.vista_media}`);
-           $("#img3").attr('src',`<?= base_url()?>assets/images/medios/${res.vista_larga}`);
-         })
     }
   })
+
+  
 }
 
 $('#monto').mask('000000');

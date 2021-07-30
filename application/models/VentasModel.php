@@ -158,6 +158,7 @@ class VentasModel extends CI_model
 		}
 	}
 
+
 	public function obtenerVenta_mediosPorFechaInicio($hoy){
 		$sql = $this->db->get_where("venta_medios",array("fecha_inicio_contrato" => $hoy));
 		if($sql){
